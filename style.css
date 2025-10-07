@@ -1,0 +1,122 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #efefef;
+    padding: 20px;
+  }
+  
+  h1, h2 {
+    text-align: center;
+    color: #2a2aeb;
+    margin-bottom: 20px;
+  }
+  
+  /* Layout principal */
+  .container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  /* Seção do formulário */
+  .form-section {
+    background: #fff;
+    padding: 20px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    border-radius: 8px;
+  }
+  
+  .form-section input,
+  .form-section textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-section button {
+    width: 48%;
+    padding: 10px;
+    background-color: #2a2aeb;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  #btn-prototipo {
+    margin-right: 4%;
+  }
+  
+  /* Seção do protótipo */
+  .preview-section {
+    background: #fff;
+    padding: 20px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    border-radius: 8px;
+  }
+  
+  .preview-section .preco {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  .preco-final {
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .preco-original {
+    color: red;
+    text-decoration: line-through;
+    font-size: 16px;
+    margin-left: 10px;
+  }
+  
+  .qtd {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  
+  /* Tabela */
+  .table-section {
+    margin-top: 40px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .table-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .table-section th,
+  .table-section td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .table-section .deletar {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .table-precoTotal {
+    color: #333
+  }
