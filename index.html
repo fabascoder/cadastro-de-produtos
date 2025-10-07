@@ -3,73 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistema de Loja Online - ADM</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Sistema de Login e Cadastro</title>
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
-  <header>
-    <h1>Sistema de Loja Online - ADM</h1>
-  </header>
 
-  <main class="container">
-    <!-- FORMULÁRIO -->
-    <section class="form-section">
-      <h2>Cadastrar Produto</h2>
-      <form id="product-form">
-        <input type="text" id="nome" placeholder="Nome do produto" />
-        <input type="number" id="preco" placeholder="Preço (R$)" />
-        <input type="text" id="desconto" placeholder="Desconto (%)" />
-        <input type="number" id="quantidade" placeholder="Quantidade" />
-        <textarea id="descricao" placeholder="Descrição do produto"></textarea>
-        
-        <button type="button" id="btn-prototipo">Gerar Protótipo</button>
-        <button type="submit" id="btn-cadastrar">Cadastrar</button>
-        <button type="submit" id="btn-desconto-aleatorio" style="background-color: rgb(3, 133, 255); width: 150px;" title="Gerar Desconto Aletório">%</button>
-        <div class="resultado-desconto-aleatorio" style="margin-top: 10px"></div>
-      </form>
-    </section>
+  <div class="container">
+    <h1>Gerenciamento de Acesso</h1>
 
-    <!-- PROTÓTIPO -->
-    <section class="preview-section">
-      <h2 id="preview-title"></h2>
-      <p class="preco">
-        <span class="preco-final"></span>
-        <span class="preco-original"></span>
-        <span class="qtd"></span>
-      </p>
-      <p class="descricao-preview"></p>
-    </section>
-  </main>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="login-user">Login Usuário</button>
+      <button class="tab-btn" data-tab="cadastro-user">Cadastro</button>
+      <button class="tab-btn" data-tab="login-admin">Login Admin</button>
+    </div>
 
-  <!-- TABELA DE PRODUTOS -->
-  <section class="table-section">
-    <h2>Lista de Produtos Cadastrados</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Preço Original</th>
-          <th>Desconto</th>
-          <th>Quantidade</th>
-          <th>Preço Final</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody id="tabela-produtos">
-        <!-- Produto Exemplo -->
-        <tr>
-          <!-- <td class="table-produto"></td>
-          <td class="table-precoOriginal"></td>
-          <td class="table-desconto">%</td>
-          <td class="table-quantidade"></td>
-          <td class="table-precoTotal"></td> -->
-          <!-- <td><span class="deletar">DELETAR</span></td> -->
-        </tr>
-      </tbody>
-    </table>
-  </section>
-  <script src="script.js"></script>
+    <!-- Login Usuário -->
+    <form id="login-user" class="tab-content active">
+      <h2>Login do Usuário</h2>
+      <label>Email:</label>
+      <input type="email" placeholder="Digite seu email" required>
+      <label>Senha:</label>
+      <input type="password" placeholder="Digite sua senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+
+    <!-- Cadastro Usuário -->
+    <form id="cadastro-user" class="tab-content">
+      <h2>Criar Conta</h2>
+      <label>Nome:</label>
+      <input type="text" placeholder="Digite seu nome completo" required>
+      <label>Email:</label>
+      <input type="email" placeholder="Digite seu email" required>
+      <label>Senha:</label>
+      <input type="password" placeholder="Crie uma senha" required>
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <!-- Login Admin -->
+    <form id="login-admin" class="tab-content">
+      <h2>Login do Administrador</h2>
+      <label>Usuário Admin:</label>
+      <input class="user-admin-input" type="text" placeholder="Usuário do admin" >
+      <label>Senha:</label>
+      <input class="password" type="password" placeholder="Senha de administrador" >
+      <button class="btn-admin" type="submit">Entrar como Admin</button>
+      <div class="res-login-admin"></div>
+    </form>
+  </div>
+
+  <script src="./js/script.js"></script>
+
 </body>
 </html>
-<!-- TESTE -->
- <!--Testando -->
