@@ -118,15 +118,20 @@ function Cadastro(
 
     const n = 0;
     function relatorio() {
-      const produtosCadastrados = estoque.length;
+      estoque.forEach((item, index) => {
+        const produtosCadastrados = estoque.length;
 
-      const totalProdutos = estoque.reduce((acc, item) => {
-        return acc + item.precoFim;
-      }, 0);
+        const totalProdutos = estoque.reduce((acc, item) => {
+          return acc + item.precoFim;
+        }, 0);
+        const valorAlto = Math.max.bind(null, estoque[index].precoFim);
+        const valorBaixo = Math.min.bind(null, estoque[index].precoFim);
 
-      console.log(`Produtos Cadastrados: ${produtosCadastrados}`);
-      console.log(`Total Bruto: ${totalProdutos}`);
-      console.log(`Produto mais alta: ${valorAlto}`);
+        console.log(`Produtos Cadastrados: ${produtosCadastrados}`);
+        console.log(`Total Bruto: ${totalProdutos}`);
+        // console.log(`Produto mais alta: ${valorAlto()}`);
+        // console.log(`Produto mais baixo: ${valorBaixo()}`);
+      });
     }
     relatorio();
   }
