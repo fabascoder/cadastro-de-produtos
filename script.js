@@ -16,7 +16,7 @@ function Cadastro(
   elementoPrecoOriginal,
   elementoQuantidade,
   elementoDescricao,
-  tableProduto, 
+  tableProduto,
   tablePrecoOriginal,
   tableDesconto,
   tableQuantidade,
@@ -34,12 +34,11 @@ function Cadastro(
   this.elementoPrecoOriginal = elementoPrecoOriginal;
   this.elementoQuantidade = elementoQuantidade;
   this.elementoDescricao = elementoDescricao;
-  this.tableProduto = tableProduto; 
-  this.tablePrecoOriginal = tablePrecoOriginal; 
-  this.tableDesconto = tableDesconto; 
-  this.tableQuantidade = tableQuantidade; 
-  this.tablePrecoTotal = tablePrecoTotal; 
-
+  this.tableProduto = tableProduto;
+  this.tablePrecoOriginal = tablePrecoOriginal;
+  this.tableDesconto = tableDesconto;
+  this.tableQuantidade = tableQuantidade;
+  this.tablePrecoTotal = tablePrecoTotal;
 
   //PEGA O TEXTO DOS ELEMENTOS DO PROTÓTIPO
   this.elementoPrecoFinal.innerHTML;
@@ -70,40 +69,27 @@ function Cadastro(
       valorQuantidade.value = "";
       valorDesconto.value = "";
       valorDescricao.value = "";
+      const novoProduto = estoque[estoque.length - 1];
 
-      //TEXTO DA TABELA SENDO SUBSTITUIDO PELO PRODUTO DO OBJETO
-      // const tableTextoProduto = this.tableProduto; 
-      // const tableTextoPrecoOriginal = this.tablePrecoOriginal
-      // const tableTextoDesconto = this.tableDesconto;
-      // const tableTextoQtd = this.tableQuantidade;
-      // const tableTextoValorTotal = this.tablePrecoTotal;
+      // CRIAR UMA NOVA LINHA
+      const novaLinha = document.createElement("tr");
 
-      // tableTextoProduto.textContent = estoque[0].produto
-      // tableTextoPrecoOriginal.textContent = 'R$ ' + estoque[0].preco;
-      // tableTextoDesconto.textContent = estoque[0].desconto + '%';
-      // tableTextoQtd.textContent = estoque[0].quantidade;
-      // tableTextoValorTotal.textContent = 'R$ ' + estoque[0].precoFim;
-      // console.log(tableTextoProduto)
-      // PEGAR O ÚLTIMO PRODUTO ADICIONADO
-const novoProduto = estoque[estoque.length - 1];
-
-// CRIAR UMA NOVA LINHA
-const novaLinha = document.createElement("tr");
-
-// ADICIONAR AS CÉLULAS (colunas)
-novaLinha.innerHTML = `
-  <td>${novoProduto.produto}</td>
-  <td>R$ ${novoProduto.preco}</td>
-  <td>${novoProduto.desconto}%</td>
-  <td>${novoProduto.quantidade}</td>
-  <td>R$ ${novoProduto.precoFim}</td>
-  <td><span class="deletar">DELETAR</span></td>
-`;
-
-// INSERIR NA TABELA
-const tabela = document.querySelector("tbody"); // ou use o seletor da sua tabela
-tabela.appendChild(novaLinha);
-
+      // ADICIONAR AS CÉLULAS (colunas)
+      novaLinha.innerHTML = `
+      <td>${novoProduto.produto}</td>
+      <td>R$ ${novoProduto.preco}</td>
+      <td>${novoProduto.desconto}%</td>
+      <td>${novoProduto.quantidade}</td>
+      <td>R$ ${novoProduto.precoFim}</td>
+      <td><span class="deletar">DELETAR</span></td>
+    `;
+      // INSERIR NA TABELA
+      const tabela = document.querySelector("tbody"); // ou use o seletor da sua tabela
+      tabela.appendChild(novaLinha);
+      const btnDeletar = novaLinha.querySelector(".deletar");
+      btnDeletar.addEventListener("click", () => {
+        novaLinha.remove();
+      });
     }
   });
 
@@ -129,7 +115,20 @@ tabela.appendChild(novaLinha);
       quantidade: quantidade,
       descricao: descricao,
     });
-    console.log(estoque)
+
+    const n = 0;
+    function relatorio() {
+      const produtosCadastrados = estoque.length;
+
+      const totalProdutos = estoque.reduce((acc, item) => {
+        return acc + item.precoFim;
+      }, 0);
+
+      console.log(`Produtos Cadastrados: ${produtosCadastrados}`);
+      console.log(`Total Bruto: ${totalProdutos}`);
+      console.log(`Produto mais alta: ${valorAlto}`);
+    }
+    relatorio();
   }
 
   //BOTAO PROTOTIPO
@@ -144,7 +143,7 @@ tabela.appendChild(novaLinha);
       const textRnderPrecoFinal = this.inputPreco.value;
       const textRnderQuantidade = "qtd: " + this.inputQuantidade.value;
       const valorDesc = (textRnderPrecoFinal * inputDesconto.value) / 100;
-      const precoFim = textRnderPrecoFinal - valorDesc; 
+      const precoFim = textRnderPrecoFinal - valorDesc;
 
       this.elementoProduto.innerHTML = textRenderProduto;
       this.elementoPrecoFinal.innerHTML = "R$ " + precoFim;
@@ -188,7 +187,6 @@ const tableDesconto = new Dom(".table-desconto");
 const tableQuantidade = new Dom(".table-quantidade");
 const tablePrecoTotal = new Dom(".table-precoTotal");
 
-
 const cadastro = new Cadastro(
   inputProduto.element,
   inputPreco.element,
@@ -202,9 +200,9 @@ const cadastro = new Cadastro(
   elementoPrecoOriginal.element,
   elementoQuantidade.element,
   elementoDescricao.element,
-  tableProduto.element, 
-  tablePrecoOriginal.element, 
-  tableDesconto.element, 
+  tableProduto.element,
+  tablePrecoOriginal.element,
+  tableDesconto.element,
   tableQuantidade.element,
   tablePrecoTotal.element
 );
