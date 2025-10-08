@@ -53,19 +53,19 @@ CREATE TABLE tbCadastroProduto (
     INSERT INTO tbProduto (NOME, VALOR, DESCRICAO)
     VALUES 
     (Celular, 1500.00, 'Smartphone de última geração com câmera de alta resolução e bateria de longa duração.');
-/* INSERINDO DADOS NA TABELA DE PRODUTOS */
-    INSERT INTO tbProduto (NOME, VALOR, DESCRICAO)
+/* INSERINDO DADOS NA TABELA DE CADASTRO */
+    INSERT INTO tbCadastro (NOME, EMAIL, SENHA)
     VALUES 
-    (Celular, 1500.00, 'Smartphone de última geração com câmera de alta resolução e bateria de longa duração.');
-/* INSERINDO DADOS NA TABELA DE PRODUTOS */
-    INSERT INTO tbProduto (NOME, VALOR, DESCRICAO)
+    (João da Silva, joao@email.com, senha123);
+/* INSERINDO DADOS NA TABELA DE USUÁRIOS */
+    INSERT INTO tbUsuario (NOME, EMAIL, SENHA, ID_CADASTRO)
     VALUES 
-    (Celular, 1500.00, 'Smartphone de última geração com câmera de alta resolução e bateria de longa duração.');
-/* INSERINDO DADOS NA TABELA DE PRODUTOS */
-    INSERT INTO tbProduto (NOME, VALOR, DESCRICAO)
+    (João da Silva, joao@gmail.com, senha123, LAST_INSERT_ID());
+/* INSERINDO DADOS NA TABELA DE ADMINISTRADORES */
+    INSERT INTO tbAdmin (NOME, EMAIL, SENHA, ID_CADASTRO)
     VALUES 
-    (Celular, 1500.00, 'Smartphone de última geração com câmera de alta resolução e bateria de longa duração.');
-/* INSERINDO DADOS NA TABELA DE PRODUTOS */
-    INSERT INTO tbProduto (NOME, VALOR, DESCRICAO)
+    (João Pereira, joaoPereira@gmail.com, senha1234, LAST_INSERT_ID());
+/* INSERINDO DADOS NA TABELA DE CADASTRO DE PRODUTOS */
+    INSERT INTO tbCadastroProduto (NOME, VALOR, DESCONTO, QUANT, DESCRICAO, ID_PRODUTO)
     VALUES 
-    (Celular, 1500.00, 'Smartphone de última geração com câmera de alta resolução e bateria de longa duração.');
+    (Celular, 1500.00, 0.10, 5, 'Smartphone de última geração com câmera de alta resolução e bateria de longa duração.', LAST_INSERT_ID());
