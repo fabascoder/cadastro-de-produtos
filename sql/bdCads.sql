@@ -13,7 +13,7 @@ CREATE TABLE tbCadastro (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     NOME VARCHAR(100) NOT NULL,
     EMAIL VARCHAR(100) NOT NULL UNIQUE,
-    SENHA VARCHAR(100) NOT NULL UNIQUE,
+    SENHA VARCHAR(100) NOT NULL,
     DATA_CADASTRO TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 /*TABELA DE USUÁRIOS*/
@@ -21,7 +21,7 @@ CREATE TABLE tbUsuario (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     NOME VARCHAR(100) NOT NULL,
     EMAIL VARCHAR(100) NOT NULL UNIQUE,
-    SENHA VARCHAR(100) NOT NULL UNIQUE,
+    SENHA VARCHAR(100) NOT NULL,
     DATA_CADASTRO TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     ID_CADASTRO INT,
     FOREIGN KEY (ID_CADASTRO) REFERENCES tbCadastro(ID)
@@ -31,7 +31,7 @@ CREATE TABLE tbAdmin (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     NOME VARCHAR(100) NOT NULL,
     EMAIL VARCHAR(100) NOT NULL UNIQUE,
-    SENHA VARCHAR(100) NOT NULL UNIQUE,
+    SENHA VARCHAR(100) NOT NULL,
     DATA_CADASTRO TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     ID_CADASTRO INT,
     FOREIGN KEY (ID_CADASTRO) REFERENCES tbCadastro(ID)
@@ -42,7 +42,7 @@ CREATE TABLE tbCadastroProduto (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     NOME VARCHAR(100) NOT NULL,
     VALOR DECIMAL(10, 2) NOT NULL,
-    DESCONTO DECIMAL(5, 3) NOT NULL,
+    DESCONTO DECIMAL(5, 3) DEFAULT 0.000,
     QUANT INT,
     DESCRICAO VARCHAR(255) NOT NULL,
     DATA_CADASTRO TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -52,20 +52,29 @@ CREATE TABLE tbCadastroProduto (
 /* INSERINDO DADOS NA TABELA DE PRODUTOS */
     INSERT INTO tbProduto (NOME, VALOR, DESCRICAO)
     VALUES 
-    (Celular, 1500.00, 'Smartphone de última geração com câmera de alta resolução e bateria de longa duração.');
+    ('Celular', 1500.00, 'Smartphone de última geração com câmera de alta resolução e bateria de longa duração.');
+
+/*PEGANDO O ID DO PRODUTO INSERIDO*/
+    SET @idProduto := LAST_INSERT_ID();
+
 /* INSERINDO DADOS NA TABELA DE CADASTRO */
     INSERT INTO tbCadastro (NOME, EMAIL, SENHA)
     VALUES 
-    (João da Silva, joao@email.com, senha123);
+    ('Maria Souza', 'maria@gmail.com', SHA2('senha123', 256));
+/* PEGANDO O ID DO CADASTRO INSERIDO*/
+    SET @idCadastro := LAST_INSERT_ID();
+
 /* INSERINDO DADOS NA TABELA DE USUÁRIOS */
     INSERT INTO tbUsuario (NOME, EMAIL, SENHA, ID_CADASTRO)
     VALUES 
-    (João da Silva, joao@gmail.com, senha123, LAST_INSERT_ID());
+    ('João da Silva', 'joao@gmail.com', SHA2('senha123', 256), @idCadastro);
+
 /* INSERINDO DADOS NA TABELA DE ADMINISTRADORES */
     INSERT INTO tbAdmin (NOME, EMAIL, SENHA, ID_CADASTRO)
     VALUES 
-    (João Pereira, joaoPereira@gmail.com, senha1234, LAST_INSERT_ID());
+    ('João Pereira', 'joaoPereira@gmail.com', SHA2('senha1234', 256), @idCadastro);
+
 /* INSERINDO DADOS NA TABELA DE CADASTRO DE PRODUTOS */
     INSERT INTO tbCadastroProduto (NOME, VALOR, DESCONTO, QUANT, DESCRICAO, ID_PRODUTO)
     VALUES 
-    (Celular, 1500.00, 0.10, 5, 'Smartphone de última geração com câmera de alta resolução e bateria de longa duração.', LAST_INSERT_ID());
+    ('Celular', 1500.00, 0.10, 5, 'Smartphone de última geração com câmera de alta resolução e bateria de longa duração.', @idProduto);
