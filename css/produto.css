@@ -1,0 +1,243 @@
+
+    .recomendados-section {
+  margin-top: 60px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.recomendados-section h3 {
+  color: #1a1aff;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.recomendados-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.produto-card {
+  flex: 0 0 auto;
+  width: 160px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  scroll-snap-align: start;
+  transition: transform 0.3s;
+}
+
+.produto-card:hover {
+  transform: scale(1.05);
+}
+
+.produto-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.produto-card h4 {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.produto-card p {
+  font-weight: bold;
+  color: #333;
+}
+
+.produto-card button {
+  margin-top: 6px;
+  padding: 6px 10px;
+  background-color: #1a1aff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.produto-card button:hover {
+  background-color: #0000cc;
+}
+
+/* Scrollbar customizada opcional */
+.recomendados-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.recomendados-scroll::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f5f7;
+      color: #333;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #eee;
+    }
+
+    header h1 {
+      color: #1a1aff;
+      font-size: 24px;
+    }
+
+    .btn-voltar {
+      padding: 10px 18px;
+      background-color: #1a1aff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .btn-voltar:hover {
+      background-color: #0000cc;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .product-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .product-image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .product-details {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .product-details h2 {
+      color: #1a1aff;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .quantity {
+      color: #555;
+    }
+
+    .description {
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .btn-add-cart {
+      margin-top: 10px;
+      padding: 12px 20px;
+      background-color: #1a1aff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-add-cart:hover {
+      background-color: #0000cc;
+    }
+
+    .feedback-section {
+      margin-top: 40px;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .feedback-section h3 {
+      color: #1a1aff;
+      margin-bottom: 15px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      resize: vertical;
+    }
+
+    .star-rating {
+      margin-top: 15px;
+      font-size: 26px;
+      color: #ccc;
+    }
+
+    .star-rating .star.checked {
+      color: gold;
+    }
+
+    .btn-submit {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #1a1aff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .btn-submit:hover {
+      background-color: #0000cc;
+    }
+
+    @media (max-width: 768px) {
+      .product-section {
+        flex-direction: column;
+      }
+    }

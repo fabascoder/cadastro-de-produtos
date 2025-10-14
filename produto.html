@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalhes do Produto</title>
+  <link rel="stylesheet" href="./css/produto.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Loja Online</h1>
+    <a href="index.html" class="btn-voltar">Voltar à Loja</a>
+  </header>
+
+  <div class="main-container">
+    <!-- Detalhes do produto -->
+    <section class="product-section">
+      <div class="product-image">
+        <img src="../img/camera.avif" alt="Produto">
+      </div>
+      <div class="product-details">
+        <h2>Produto Exemplo Premium</h2>
+        <p class="price">R$ 149,90</p>
+        <p class="quantity">Disponibilidade: 8 unidades</p>
+        <p class="description">
+          Este produto é ideal para quem busca qualidade e eficiência. Com acabamento premium, longa durabilidade e excelente desempenho, ele se destaca em qualquer situação.
+        </p>
+        <button class="btn-add-cart">Adicionar ao Carrinho</button>
+      </div>
+    </section>
+
+    <!-- Produtos Recomendados -->
+<section class="recomendados-section">
+  <h3>Produtos Recomendados</h3>
+  <div class="recomendados-scroll">
+    <!-- Produto Card -->
+    <div class="produto-card">
+      <img src="../img/camera.avif" alt="Produto 1">
+      <h4>Produto 1</h4>
+      <p>R$ 89,90</p>
+      <button>Ver Mais</button>
+    </div>
+    <div class="produto-card">
+      <img src="../img/camera.avif" alt="Produto 2">
+      <h4>Produto 2</h4>
+      <p>R$ 129,00</p>
+      <button>Ver Mais</button>
+    </div>
+    <div class="produto-card">
+      <img src="../img/camera.avif" alt="Produto 3">
+      <h4>Produto 3</h4>
+      <p>R$ 99,90</p>
+      <button>Ver Mais</button>
+    </div>
+    <div class="produto-card">
+      <img src="../img/camera.avif" alt="Produto 4">
+      <h4>Produto 4</h4>
+      <p>R$ 79,99</p>
+      <button>Ver Mais</button>
+    </div>
+    <div class="produto-card">
+      <img src="../img/camera.avif" alt="Produto 5">
+      <h4>Produto 5</h4>
+      <p>R$ 149,00</p>
+      <button>Ver Mais</button>
+    </div>
+    <div class="produto-card">
+      <img src="../img/camera.avif" alt="Produto 5">
+      <h4>Produto 5</h4>
+      <p>R$ 149,00</p>
+      <button>Ver Mais</button>
+    </div>
+    <div class="produto-card">
+      <img src="../img/camera.avif" alt="Produto 5">
+      <h4>Produto 5</h4>
+      <p>R$ 149,00</p>
+      <button>Ver Mais</button>
+    </div>
+    <div class="produto-card">
+      <img src="../img/camera.avif" alt="Produto 5">
+      <h4>Produto 5</h4>
+      <p>R$ 149,00</p>
+      <button>Ver Mais</button>
+    </div>
+    <div class="produto-card">
+      <img src="../img/camera.avif" alt="Produto 5">
+      <h4>Produto 5</h4>
+      <p>R$ 149,00</p>
+      <button>Ver Mais</button>
+    </div>
+    <div class="produto-card">
+      <img src="../img/camera.avif" alt="Produto 5">
+      <h4>Produto 5</h4>
+      <p>R$ 149,00</p>
+      <button>Ver Mais</button>
+    </div>
+    <div class="produto-card">
+      <img src="../img/camera.avif" alt="Produto 5">
+      <h4>Produto 5</h4>
+      <p>R$ 149,00</p>
+      <button>Ver Mais</button>
+    </div>
+    <div class="produto-card">
+      <img src="../img/camera.avif" alt="Produto 5">
+      <h4>Produto 5</h4>
+      <p>R$ 149,00</p>
+      <button>Ver Mais</button>
+    </div>
+    <div class="produto-card">
+      <img src="../img/camera.avif" alt="Produto 5">
+      <h4>Produto 5</h4>
+      <p>R$ 149,00</p>
+      <button>Ver Mais</button>
+    </div>
+    <!-- Adicione mais produtos se quiser -->
+  </div>
+</section>
+
+
+    <!-- Sugestões e Avaliações -->
+    <section class="feedback-section">
+      <h3>Deixe sua sugestão ou comentário</h3>
+      <textarea placeholder="O que achou do produto? Alguma melhoria ou elogio?"></textarea>
+
+      <h3 style="margin-top: 20px;">Avaliação:</h3>
+      <div class="star-rating" id="starRating">
+        <i class="fa-regular fa-star star" data-value="1"></i>
+        <i class="fa-regular fa-star star" data-value="2"></i>
+        <i class="fa-regular fa-star star" data-value="3"></i>
+        <i class="fa-regular fa-star star" data-value="4"></i>
+        <i class="fa-regular fa-star star" data-value="5"></i>
+      </div>
+
+      <button class="btn-submit">Enviar Avaliação</button>
+    </section>
+  </div>
+
+  <script>
+    // Lógica de estrela
+    const stars = document.querySelectorAll('.star');
+    stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        stars.forEach(s => s.classList.remove('checked'));
+        for (let i = 0; i <= index; i++) {
+          stars[i].classList.add('checked');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

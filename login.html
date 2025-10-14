@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Login e Cadastro</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Gerenciamento de Acesso</h1>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="login-user">Login Usuário</button>
+      <button class="tab-btn" data-tab="cadastro-user">Cadastro</button>
+      <button class="tab-btn" data-tab="login-admin">Login Admin</button>
+    </div>
+
+    <!-- Login Usuário -->
+    <form id="login-user" class="tab-content active">
+      <h2>Login do Usuário</h2>
+      <label>Email:</label>
+      <input id="input-user" type="email" placeholder="Digite seu email" required>
+      <label>Senha:</label>
+      <input id="pass-user" type="password" placeholder="Digite sua senha" required>
+      <button id="btn-user" type="submit">Entrar</button>
+      <div class="res-login-cad"></div>
+    </form>
+
+    <!-- Cadastro Usuário -->
+    <form id="cadastro-user" class="tab-content">
+      <h2>Criar Conta</h2>
+      <label>Nome:</label>
+      <input class="input-cad" type="text" placeholder="Digite seu nome completo" required>
+      <label>Email:</label>
+      <input class="email-cad" type="email" placeholder="Digite seu email" required>
+      <label>Senha:</label>
+      <input class="pass-cad" type="password" placeholder="Crie uma senha" required>
+      <button id="btn-cadastro" type="submit">Cadastrar</button>
+      <div class="res-login-admin"></div>
+    </form>
+
+    <!-- Login Admin -->
+    <form id="login-admin" class="tab-content">
+      <h2>Login do Administrador</h2>
+      <label>Usuário Admin:</label>
+      <input class="user-admin-input" type="text" placeholder="Usuário do admin" >
+      <label>Senha:</label>
+      <input class="password" type="password" placeholder="Senha de administrador" >
+      <button class="btn-admin" type="submit">Entrar como Admin</button>
+      <div class="res-login-admin"></div>
+    </form>
+  </div>
+
+  <script src="./js/script.js"></script>
+
+  <!-- <p>ISSO È UM COMENTARIO</p> -->
+</body>
+</html>

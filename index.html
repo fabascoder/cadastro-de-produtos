@@ -1,60 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistema de Login e Cadastro</title>
-  <link rel="stylesheet" href="./css/style.css" />
+  <title>Loja Online - Início</title>
+  <link rel="stylesheet" href="./css/usuario.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1>Gerenciamento de Acesso</h1>
+  <header>
+    <h1>Loja Online</h1>
+    <a href="login.html" title="Entrar ou Cadastrar"><i class="fas fa-user login-icon"></i></a>
+  </header>
 
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="login-user">Login Usuário</button>
-      <button class="tab-btn" data-tab="cadastro-user">Cadastro</button>
-      <button class="tab-btn" data-tab="login-admin">Login Admin</button>
-    </div>
-
-    <!-- Login Usuário -->
-    <form id="login-user" class="tab-content active">
-      <h2>Login do Usuário</h2>
-      <label>Email:</label>
-      <input id="input-user" type="email" placeholder="Digite seu email" required>
-      <label>Senha:</label>
-      <input id="pass-user" type="password" placeholder="Digite sua senha" required>
-      <button id="btn-user" type="submit">Entrar</button>
-      <div class="res-login-cad"></div>
-    </form>
-
-    <!-- Cadastro Usuário -->
-    <form id="cadastro-user" class="tab-content">
-      <h2>Criar Conta</h2>
-      <label>Nome:</label>
-      <input class="input-cad" type="text" placeholder="Digite seu nome completo" required>
-      <label>Email:</label>
-      <input class="email-cad" type="email" placeholder="Digite seu email" required>
-      <label>Senha:</label>
-      <input class="pass-cad" type="password" placeholder="Crie uma senha" required>
-      <button id="btn-cadastro" type="submit">Cadastrar</button>
-      <div class="res-login-admin"></div>
-    </form>
-
-    <!-- Login Admin -->
-    <form id="login-admin" class="tab-content">
-      <h2>Login do Administrador</h2>
-      <label>Usuário Admin:</label>
-      <input class="user-admin-input" type="text" placeholder="Usuário do admin" >
-      <label>Senha:</label>
-      <input class="password" type="password" placeholder="Senha de administrador" >
-      <button class="btn-admin" type="submit">Entrar como Admin</button>
-      <div class="res-login-admin"></div>
-    </form>
+  <div class="search-container">
+    <input type="text" placeholder="Buscar produtos...">
   </div>
 
-  <script src="../js/script.js"></script>
+  <section class="products-section">
+    <h2 style="color: #1a1aff; margin-bottom: 20px;">Produtos em Destaque</h2>
+    <div class="products-grid">
+      <!-- Card 1 -->
+      <div class="product-card">
+        <img src="../img/camera.avif" alt="Produto">
+        <div class="product-info">
+          <h3>Produto 1</h3>
+          <p class="price">R$ 120,00</p>
+          <p>Descrição breve do produto.</p>
+          <a href="./produto.html" class="btn-details">Ver Detalhes</a>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="product-card">
+        <img src="../img/oculos.avif" alt="Produto">
+        <div class="product-info">
+          <h3>Produto 2</h3>
+          <p class="price">R$ 89,90</p>
+          <p>Produto com ótimo custo-benefício.</p>
+          <a href="./produto.html" class="btn-details">Ver Detalhes</a>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="product-card">
+        <img src="../img/tenis.avif" alt="Produto">
+        <div class="product-info">
+          <h3>Produto 3</h3>
+          <p class="price">R$ 45,00</p>
+          <p>Ideal para o dia a dia.</p>
+          <a href="./produto.html" class="btn-details">Ver Detalhes</a>
+        </div>
+      </div>
+      <!-- Adicione mais cards conforme necessário -->
+    </div>
+  </section>
 
-  <!-- <p>ISSO È UM COMENTARIO</p> -->
+<script src="./js/usuario"></script>
 </body>
 </html>
