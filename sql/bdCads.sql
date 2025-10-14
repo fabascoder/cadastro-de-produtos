@@ -1,6 +1,8 @@
 CREATE DATABASE bdCads;
 USE bdCads;
+
 /*TABELA DE PRODUTOS*/
+
 CREATE TABLE tbProduto (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     NOME VARCHAR(100) NOT NULL,
@@ -8,7 +10,9 @@ CREATE TABLE tbProduto (
     DESCRICAO VARCHAR(255) NOT NULL,
     DATA_CADASTRO TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 /*TABELA DE CADASTRO*/
+
 CREATE TABLE tbCadastro (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     NOME VARCHAR(100) NOT NULL,
@@ -16,7 +20,9 @@ CREATE TABLE tbCadastro (
     SENHA VARCHAR(100) NOT NULL,
     DATA_CADASTRO TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 /*TABELA DE USUÁRIOS*/
+
 CREATE TABLE tbUsuario (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     NOME VARCHAR(100) NOT NULL,
@@ -26,7 +32,9 @@ CREATE TABLE tbUsuario (
     ID_CADASTRO INT,
     FOREIGN KEY (ID_CADASTRO) REFERENCES tbCadastro(ID)
 );
+
 /*TABELA DE ADMINISTRADORES*/
+
 CREATE TABLE tbAdmin (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     NOME VARCHAR(100) NOT NULL,
@@ -38,6 +46,7 @@ CREATE TABLE tbAdmin (
 );
 
 /*TABELA DE CADASTRO DE PRODUTOS*/
+
 CREATE TABLE tbCadastroProduto (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     NOME VARCHAR(100) NOT NULL,
@@ -49,32 +58,41 @@ CREATE TABLE tbCadastroProduto (
     ID_PRODUTO INT,
     FOREIGN KEY (ID_PRODUTO) REFERENCES tbProduto(ID)
 );
+
 /* INSERINDO DADOS NA TABELA DE PRODUTOS */
+
     INSERT INTO tbProduto (NOME, VALOR, DESCRICAO)
     VALUES 
     ('Celular', 1500.00, 'Smartphone de última geração com câmera de alta resolução e bateria de longa duração.');
 
 /*PEGANDO O ID DO PRODUTO INSERIDO*/
+
     SET @idProduto := LAST_INSERT_ID();
 
 /* INSERINDO DADOS NA TABELA DE CADASTRO */
+
     INSERT INTO tbCadastro (NOME, EMAIL, SENHA)
     VALUES 
     ('Maria Souza', 'maria@gmail.com', SHA2('senha123', 256));
+
 /* PEGANDO O ID DO CADASTRO INSERIDO*/
+
     SET @idCadastro := LAST_INSERT_ID();
 
 /* INSERINDO DADOS NA TABELA DE USUÁRIOS */
+
     INSERT INTO tbUsuario (NOME, EMAIL, SENHA, ID_CADASTRO)
     VALUES 
     ('João da Silva', 'joao@gmail.com', SHA2('senha123', 256), @idCadastro);
 
 /* INSERINDO DADOS NA TABELA DE ADMINISTRADORES */
+
     INSERT INTO tbAdmin (NOME, EMAIL, SENHA, ID_CADASTRO)
     VALUES 
     ('João Pereira', 'joaoPereira@gmail.com', SHA2('senha1234', 256), @idCadastro);
 
 /* INSERINDO DADOS NA TABELA DE CADASTRO DE PRODUTOS */
+
     INSERT INTO tbCadastroProduto (NOME, VALOR, DESCONTO, QUANT, DESCRICAO, ID_PRODUTO)
     VALUES 
     ('Celular', 1500.00, 0.10, 5, 'Smartphone de última geração com câmera de alta resolução e bateria de longa duração.', @idProduto);
