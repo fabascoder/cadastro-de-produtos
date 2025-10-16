@@ -1,0 +1,139 @@
+:root {
+  --color1: #072edd;
+  --color2: #0523ca;
+  --color3: #1044fe;
+  --color4: #020ca4;
+  --color5: #000038;
+}
+.modal-container {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container.ativo {
+  display: flex;
+}
+
+
+
+.modal {
+  background-color: white;
+  padding: 40px;
+  /* border: 10px solid #fb5;  */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: relative;
+  min-width: 400px;
+  border-radius: 6px;
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+    tranform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.ativo .modal {
+  animation: modal .3s forwards;
+}
+
+.fechar {
+  border: none;
+  background-color: #fff;
+  top: 5px;
+  right: 12px;
+  position: absolute;
+  font-size: 1.5rem; 
+  color: var(--color5);
+  font-family: 'IMB Plex Mono', monospace;
+  cursor: pointer;
+   color: #666;
+}
+
+.modal p {
+    font-size: 1.5rem;
+    color: #072edd;
+    text-align: center;
+}
+
+.modal label {
+  font-family:Arial, Helvetica, sans-serif;
+  display: block;
+  font-weight: bold;
+  margin: 1rem 0 .5rem 0;
+  color: #333;
+}
+
+.modal input {
+  width: 100%;
+  padding: .7rem .5rem;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.div-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+}
+
+.modal .btn-cadastrar {
+  display: block;
+  border: none;
+  border-radius: 4px; 
+  padding: .7rem 1.2rem; 
+  font-size: 1rem; 
+  color: var(--color3); 
+  font-family:Arial, Helvetica, sans-serif;
+   margin-top: 1rem;
+   font-weight: bold;
+   cursor: pointer;
+}
+
+.modal .btn-cadastrar:hover {
+    background-color: var(--color4);
+     transition: 0.8s;
+}
+
+.modal .btn-cadastrar:hover a{
+    color: white;
+    transition: 0.8s;
+}
+
+.modal .btn-cadastrar a {
+    color: var(--color3); 
+    text-decoration: none;
+}
+
+
+.modal button[type="submit"] {
+  display: block;
+  background-color: var(--color3);
+  border: none;
+  border-radius: 4px; 
+  padding: .7rem 1.2rem; 
+  font-size: 1rem; 
+  color: white; 
+  font-family: 'IMB Plex Mono', monospace;
+   margin-top: 1rem;
+   font-weight: bold;
+   cursor: pointer
+}
+
+.modal button[type="submit"]:hover {
+    background-color: var(--color4); 
+    text-decoration: none;
+}

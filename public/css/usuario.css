@@ -1,4 +1,11 @@
-   * {
+:root {
+  --color1: #072edd;
+  --color2:  #0523ca;
+  --color3: #1044fe;
+  --color4: #020ca4;
+  --color5: #000038 ;
+}
+* {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -7,7 +14,7 @@
 
     body {
       background-color: #f4f5f7;
-      color: #333;
+      color: var(--color5);
     }
 
     header {
@@ -23,12 +30,12 @@
     }
 
     header h1 {
-      color: #1a1aff;
+      color: var(--color3);
     }
 
     .login-icon {
       font-size: 24px;
-      color: #1a1aff;
+      color: var(--color5);
       cursor: pointer;
     }
 
@@ -79,26 +86,26 @@
     }
 
     .product-info h3 {
-      color: #1a1aff;
-      font-size: 18px;
+      color: var(--color3);
+      font-size: 20px;
       margin-bottom: 5px;
     }
 
     .product-info p {
       margin-bottom: 8px;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     .product-info .price {
       font-weight: bold;
-      color: #000;
+      color: #222;
     }
 
     .btn-details {
       display: inline-block;
       margin-top: 10px;
       padding: 8px 15px;
-      background-color: #1a1aff;
+      background-color: var(--color2);
       color: #fff;
       border: none;
       border-radius: 6px;
@@ -107,5 +114,5 @@
     }
 
     .btn-details:hover {
-      background-color: #0000e6;
+      background-color: var(--color3);
     }
