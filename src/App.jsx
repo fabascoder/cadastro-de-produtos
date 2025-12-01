@@ -5,12 +5,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 function App() {
+  let teste = document.querySelector('.login-icon'); 
+  function handleTeste() {
+    let modificao = "Modal Fake"; 
+    teste.textContent = modificao; //Problema quando atualiza a pagina - para de funcionar só funciona de primeira
+    console.log(teste)
+    teste.style.color = 'red';
+  }
   return (
     <>
       <header>
         <h1>Loja Online</h1>
         <a data-modal="login" title="Entrar ou Cadastrar">
-          <i className="fas fa-user login-icon"></i>
+          <i className="fas fa-user login-icon" onClick={handleTeste}>Modal</i>
         </a>
       </header>
 
