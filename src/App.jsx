@@ -18,6 +18,7 @@ function App() {
         <h1>Loja Online</h1>
         <a data-modal="login" title="Entrar ou Cadastrar">
           <i className="fas fa-user login-icon" onClick={handleTeste}>Modal</i>
+          <a href="./pulblic/pages/admin.html"></a>
         </a>
       </header>
 

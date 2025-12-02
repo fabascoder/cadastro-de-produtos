@@ -63,6 +63,7 @@ function Cadastro(
     ) {
       erroCampoVazio();
     } else {
+      setLocalStorage(); 
       validarTexto();
       valorProduto.value = "";
       valorPreco.value = "";
@@ -93,6 +94,8 @@ function Cadastro(
     }
   });
 
+
+
   function validarTexto() {
     const produto = valorProduto.value.trim();
     const quantidade = valorQuantidade.value.trim();
@@ -106,6 +109,7 @@ function Cadastro(
       desconto = 0;
     }
 
+
     estoque.push({
       produto: produto,
       desconto: desconto,
@@ -115,6 +119,9 @@ function Cadastro(
       quantidade: quantidade,
       descricao: descricao,
     });
+
+    setLocalStorage(produto, desconto, des, preco, valorFinal, quantidade, descricao);
+    exibirMsg();
 
     const n = 0;
     function relatorio() {
@@ -136,6 +143,28 @@ function Cadastro(
     relatorio();
   }
 
+  // LOCAL STORAGE SET
+  function setLocalStorage(produto, desconto, descontoAplicado, preco, precoFim, quantidade, descricao) {
+    localStorage.setItem('nomeProduto', produto);
+    localStorage.setItem('descontoProduto', desconto)
+    localStorage.setItem('descontoAplicadoProduto', descontoAplicado)
+    localStorage.setItem('precoProduto', preco)
+    localStorage.setItem('precoFimProduto', precoFim);  
+    localStorage.setItem('quantidadeProduto', quantidade); 
+    localStorage.setItem('descricaoProduto', descricao); 
+  }
+  // LOCAL STORAGE GET
+  function exibirMsg() {
+    const produtoAmazen = localStorage.getItem('nomeProduto');
+    const descontoAmazen = localStorage.getItem('descontoProduto');
+    const produtoAplicadoAmazen = localStorage.getItem('descontoAplicadoProduto');
+    const precoAmazen = localStorage.getItem('precoProduto');
+    const precoFimAmazen = localStorage.getItem('precoFimProduto');
+    const quantidadeAmazen = localStorage.getItem('quantidadeProduto');
+    const descricaoAmazen = localStorage.getItem('descricaoProduto');
+    console.log(produtoAmazen, descontoAmazen, produtoAplicadoAmazen, precoAmazen, precoFimAmazen,quantidadeAmazen, descricaoAmazen)
+  }
+
   //BOTAO PROTOTIPO
   this.btnPrototipo.addEventListener("click", (e) => {
     e.preventDefault();
@@ -150,11 +179,13 @@ function Cadastro(
       const valorDesc = (textRnderPrecoFinal * inputDesconto.value) / 100;
       const precoFim = textRnderPrecoFinal - valorDesc;
 
-      this.elementoProduto.innerHTML = textRenderProduto;
-      this.elementoPrecoFinal.innerHTML = "R$ " + precoFim;
-      this.elementoQuantidade.innerHTML = textRnderQuantidade;
-      this.elementoDescricao.innerHTML = this.inputDescricao.value;
-      this.elementoPrecoOriginal.innerHTML = "R$ " + textRnderPrecoFinal;
+      
+    this.elementoProduto.innerHTML = textRenderProduto;
+    this.elementoPrecoFinal.innerHTML = "R$ " + textRnderPrecoFinal;
+    this.elementoQuantidade.innerHTML = textRnderQuantidade;
+    this.elementoDescricao.innerHTML = descricaoAmazen;
+    this.elementoPrecoOriginal.innerHTML = "R$ " + precoFim;
+      
     }
   });
 
